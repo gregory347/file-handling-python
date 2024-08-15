@@ -1,0 +1,49 @@
+def create_and_write_file():
+    try:
+        # Create a new file and write three lines of text
+        with open('my_file.txt', 'w') as file:
+            file.write("This is the first line of the file.\n")
+            file.write("Here is the second line with a number: 12345.\n")
+            file.write("Finally, this is the third line with more text.\n")
+        print("File created and initial content written successfully.")
+    except (FileNotFoundError, PermissionError) as e:
+        print(f"Error occurred: {e}")
+    finally:
+        print("File creation and writing process finished.")
+
+def read_and_display_file():
+    try:
+        # Read the content of the file and display it
+        with open('my_file.txt', 'r') as file:
+            content = file.read()
+            print("File content:")
+            print(content)
+    except (FileNotFoundError, PermissionError) as e:
+        print(f"Error occurred: {e}")
+    finally:
+        print("File reading process finished.")
+
+def append_to_file():
+    try:
+        # Open the file in append mode and add more lines of text
+        with open('my_file.txt', 'a') as file:
+            file.write("Appending a new line to the file.\n")
+            file.write("Adding another line with more information.\n")
+            file.write("And one more line for good measure.\n")
+        print("Additional content appended successfully.")
+    except (FileNotFoundError, PermissionError) as e:
+        print(f"Error occurred: {e}")
+    finally:
+        print("File appending process finished.")
+
+# Create and write to the file
+create_and_write_file()
+
+# Read and display the file content
+read_and_display_file()
+
+# Append additional content to the file
+append_to_file()
+
+# Read and display the file content again to show the appended lines
+read_and_display_file()
